@@ -10,6 +10,7 @@ module.exports = {
   },
 
   target: "web",
+  devtool: "source-map",
   devServer: {
     port: "3010",
     static: ["./public"],
@@ -33,10 +34,11 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'sass-loader'
         ]
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin]
+  plugins: [new MiniCssExtractPlugin()]
 }
