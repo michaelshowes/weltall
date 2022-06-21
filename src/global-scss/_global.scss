@@ -4,6 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
 }
 
 body {
@@ -12,12 +18,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 100%;
 }
 
-a {
+a,
+a:visited,
+a:active {
   text-decoration: none;
 }
 
 ul {
   list-style: none;
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+img[width] {
+  width: auto; // Defer to max-width
+}
+
+img[width][height] {
+  height: auto; // Preserve aspect ratio
+}
+
+// Let SVG scale without boundaries
+svg,
+img[src$=".svg"] {
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
+iframe {
+  border: 0;
 }
