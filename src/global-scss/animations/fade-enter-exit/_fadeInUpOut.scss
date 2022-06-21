@@ -1,0 +1,30 @@
+//animation for table swipe indicator
+@keyframes fadeInUpOut {
+  0% {
+    opacity: 0;
+    transform: translateY($base-distance * 2);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateX($base-distance * 2);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+    transform: translateX(0);
+  }
+}
+
+.fadeInUpOut {
+  animation-name: fadeInUpOut;
+}

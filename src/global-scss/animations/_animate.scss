@@ -1,0 +1,165 @@
+// NOTE: Only uncomment the animations you actually need in your project!
+
+// ATTENTION
+// @forward 'attention-seekers/bounce';
+// @forward 'attention-seekers/flash';
+// @forward 'attention-seekers/pulse';
+// @forward 'attention-seekers/shake';
+// @forward 'attention-seekers/swing';
+// @forward 'attention-seekers/wiggle';
+// @forward 'attention-seekers/wobble';
+// @forward 'attention-seekers/tada';
+
+// BOUNCE
+// @forward 'bounce-enter/bounceIn';
+// @forward 'bounce-enter/bounceInDown';
+// @forward 'bounce-enter/bounceInLeft';
+// @forward 'bounce-enter/bounceInRight';
+// @forward 'bounce-enter/bounceInUp';
+// @forward 'bounce-exit/bounceOut';
+// @forward 'bounce-exit/bounceOutDown';
+// @forward 'bounce-exit/bounceOutLeft';
+// @forward 'bounce-exit/bounceOutRight';
+// @forward 'bounce-exit/bounceOutUp';
+
+// FADE
+// @forward	'fade-enter/fadeIn';
+// @forward 'fade-enter/fadeInDown';
+// @forward 'fade-enter/fadeInDownBig';
+// @forward 'fade-enter/fadeInLeft';
+// @forward 'fade-enter/fadeInLeftBig';
+// @forward 'fade-enter/fadeInRight';
+// @forward 'fade-enter/fadeInRightBig';
+// @forward 'fade-enter/fadeInUp';
+// @forward	'fade-enter-exit/fadeInUpOut';
+// @forward 'fade-enter/fadeInUpBig';
+// @forward 'fade-exit/fadeOut';
+// @forward 'fade-exit/fadeOutDown';
+// @forward 'fade-exit/fadeOutDownBig';
+// @forward 'fade-exit/fadeOutLeft';
+// @forward 'fade-exit/fadeOutLeftBig';
+// @forward 'fade-exit/fadeOutRight';
+// @forward 'fade-exit/fadeOutRightBig';
+// @forward 'fade-exit/fadeOutUp';
+// @forward 'fade-exit/fadeOutUpBig';
+
+// FLIP
+// @forward 'flippers/flip';
+// @forward 'flippers/flipInX';
+// @forward 'flippers/flipInY';
+// @forward 'flippers/flipOutX';
+// @forward 'flippers/flipOutY';
+
+// LIGHTSPEED
+// @forward	'lightspeed/lightSpeedIn';
+// @forward 'lightspeed/lightSpeedOut';
+
+// ROTATE
+// @forward	'rotate-enter/rotateIn';
+// @forward 'rotate-enter/rotateInDownLeft';
+// @forward 'rotate-enter/rotateInDownRight';
+// @forward 'rotate-enter/rotateInUpLeft';
+// @forward 'rotate-enter/rotateInUpRight';
+// @forward 'rotate-exit/rotateOut';
+// @forward 'rotate-exit/rotateOutDownLeft';
+// @forward 'rotate-exit/rotateOutDownRight';
+// @forward 'rotate-exit/rotateOutUpLeft';
+// @forward 'rotate-exit/rotateOutUpRight';
+
+// SLIDE
+// @forward 'slide-enter/slideInDown';
+// @forward 'slide-enter/slideInLeft';
+// @forward 'slide-enter/slideInRight';
+// @forward 'slide-enter/slideInUp';
+// @forward 'slide-exit/slideOutDown';
+// @forward 'slide-exit/slideOutLeft';
+// @forward 'slide-exit/slideOutRight';
+// @forward 'slide-exit/slideOutUp';
+
+// SPECIAL
+// @forward 'special/hinge';
+// @forward 'special/rollIn';
+// @forward 'special/rollOut';
+
+// ZOOM
+// @forward 'zoom-enter/zoomIn';
+// @forward 'zoom-enter/zoomInDown';
+// @forward 'zoom-enter/zoomInLeft';
+// @forward 'zoom-enter/zoomInRight';
+// @forward 'zoom-enter/zoomInUp';
+// @forward 'zoom-exit/zoomOut';
+// @forward 'zoom-exit/zoomOutDown';
+// @forward 'zoom-exit/zoomOutLeft';
+// @forward 'zoom-exit/zoomOutRight';
+// @forward 'zoom-exit/zoomOutUp';
+
+/////////////////////////////////////////////////////////
+// Animation Default Settings                          //
+/////////////////////////////////////////////////////////
+
+// Base module settings
+$base-duration:               1s !default;           // used in 1-base module
+$base-origin:                 top center !default;
+$base-degrees:                30deg !default;        // used in lightspeed & special modules
+$base-fill-mode:              both !default;
+$base-iteration-count:        infinite !default;
+
+$base-timing-function-in:     ease-in !default;
+$base-timing-function-out:    ease-out !default;
+$base-timing-function-in-out: ease-in-out !default;
+
+$base-distance:               10px !default; 		// used in fade, shake and bounce modules
+$base-distance-big:           1000px !default;  // used in fadeBig and bounce modules
+
+// Rotate module settings
+$rotate-degrees:              90deg !default;
+$rotate-degrees-max:          200deg !default;
+$rotate-origin:               center center !default;
+
+// Flipper module settings
+$flipper-perspective:         400px !default;
+$flipper-translate:           150px !default;
+$flipper-degrees:             10deg !default;
+$flipper-degrees-max:         90deg !default;
+
+// Hinge module settings
+$hinge-origin:                top left !default;
+$hinge-degrees-max:           80deg !default;
+$hinge-translate:             700px !default;
+
+
+[data-animation] {
+  animation-duration: $base-duration;
+  animation-fill-mode: $base-fill-mode;
+
+  &.infinite {
+    animation-iteration-count: $base-iteration-count;
+	}
+}
+
+[data-animation*='In'] {
+  visibility: hidden;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    visibility: visible !important;
+  }
+
+  &.-animated {
+    visibility: visible;
+  }
+}
+
+// Disable animations for print and users with prefers-reduced-motion set
+@media print, (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  [data-animation*='Out'] {
+    opacity: 0 !important;
+  }
+}

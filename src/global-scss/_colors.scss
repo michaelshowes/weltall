@@ -1,0 +1,10 @@
+$primarycolors: (
+  white: (
+    base: #fff
+  ),
+  black: (
+    base: #000
+  )
+);
+
+$body-color: primary-color(black);
