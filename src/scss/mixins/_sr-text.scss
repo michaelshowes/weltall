@@ -1,0 +1,12 @@
+// Screen-Reader Text
+//
+// Visually hides elements but keeps them visible to search engines and screen readers
+@mixin sr-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  overflow: hidden;
+}

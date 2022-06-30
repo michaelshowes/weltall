@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+// INPUT
+//  font-size: rem(32);
+//
+// RESULT
+//  font-size: 2rem;
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Do not include unit when using rem() function; only numbers'
+  }
+}

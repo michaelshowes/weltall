@@ -1,0 +1,47 @@
+$colors: (
+  white: (
+    1: #fff
+  ),
+  black: (
+    1: #000
+  )
+);
+
+$socialmediacolors: (
+  facebook:   #3b5998,
+  twitter:    #1da1f2,
+  linkedin:   #007bb5,
+  youtube:    #f00,
+  instagram:  #c32aa3
+);
+
+// Color Function
+//
+// Gets hex value from Sass map
+//
+// $color = null - Color name from the Sass map
+// $tone = number - Color shade
+//
+// Usage:
+// color: color(orange, 1);
+//
+// Compiled:
+// color: #f2530f;
+//
+@function color($color, $tone: 1) {
+  @return map-get(map-get($colors, $color), $tone);
+}
+
+// Social Media Color
+//
+// Gets hex value from Sass map for social media platforms
+//
+// $platform = null - Name of social media platform
+@function sm-color($platform) {
+  @return map-get($socialmediacolors, $platform);
+}
+
+// global color variables
+$body-color: color(black);
+
+$body-bg-color: color(white);

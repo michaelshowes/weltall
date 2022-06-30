@@ -1,0 +1,34 @@
+// @use '../../../node_modules/breakpoint-slicer/' as *;
+
+// Grid Columns
+//
+// Main CSS grid layout
+//
+// Definition:
+// %grid-columns {
+//   display: grid;
+//   grid-template-columns: [full-start] minmax(20px, 1fr) [main-start] minmax(0, $inner-max-width) [main-end] minmax(20px, 1fr) [full-end];
+// }
+//
+// Usage:
+// .sample {
+//   @extend grid-columns;
+// }
+//
+// Compiled:
+// .sample {
+//   display: grid;
+//   grid-template-columns: [full-start] minmax(20px, 1fr) [main-start] minmax(0, 1500px) [main-end] minmax(20px, 1fr) [full-end];
+// }
+//
+
+$inner-max-width: 1400px;
+
+%grid-columns {
+  display: grid;
+  grid-template-columns: [full-start] minmax(20px, 1fr) [main-start] minmax(0, $inner-max-width) [main-end] minmax(20px, 1fr) [full-end];
+
+  // @include from(10) {
+  //   grid-template-columns: [full-start] minmax(40px, 1fr) [main-start] minmax(0, $inner-max-width) [main-end] minmax(40px, 1fr) [full-end];
+  // }
+}
